@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.h                                           :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gyumpark <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 20:00:55 by gyumpark          #+#    #+#             */
-/*   Updated: 2022/05/21 20:01:32 by gyumpark         ###   ########.fr       */
+/*   Created: 2022/05/22 15:47:37 by gyumpark          #+#    #+#             */
+/*   Updated: 2022/05/22 16:19:31 by gyumpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERVER_H
-# define SERVER_H
+#ifndef MINITALK_H
+# define MINITALK_H
 
+# include <stdlib.h>
 # include <signal.h>
 # include <unistd.h>
-# include <stdlib.h>
+
+# include <stdio.h>
+
+int	ft_atoi(const char *str);
 
 #endif
