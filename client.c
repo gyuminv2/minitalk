@@ -6,7 +6,7 @@
 /*   By: gyumpark <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:01:53 by gyumpark          #+#    #+#             */
-/*   Updated: 2022/05/22 21:55:29 by gyumpark         ###   ########.fr       */
+/*   Updated: 2022/05/25 16:12:31 by gyumpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	my_kill(int s_pid, char *s)
 	j = 0;
 	while (*s)
 	{
+		i = 7;
 		while (i >= 0)
 		{
 			if (*s >> i & 1)
@@ -35,9 +36,12 @@ static void	my_kill(int s_pid, char *s)
 	}
 }
 
-int main(int ac, char *av[]) // av[1] = server_pid, av[2] = 문자열
+int	main(int ac, char *av[])
 {
-	//kill(atoi(av[1]), atoi(av[2]));
-	printf("%d %d\n", atoi(av[1]), atoi(av[2]));
+	if (ac != 3)
+	{
+		write(1, "ERROR: input != 3", 17);
+		exit(0);
+	}
 	my_kill(atoi(av[1]), av[2]);
 }

@@ -6,7 +6,7 @@
 /*   By: gyumpark <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:03:59 by gyumpark          #+#    #+#             */
-/*   Updated: 2022/05/22 21:55:30 by gyumpark         ###   ########.fr       */
+/*   Updated: 2022/05/25 16:14:02 by gyumpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static void	talk(int sig)
 {
-	static int	byte;
+	static char	byte;
 	static int	space;
 
-	space = 7;
 	if (sig == SIGUSR1)
-		byte += 1 << --space;
-	//else if (sig == SIGUSR2)
-	//	--space;
-	--space;
-	if (space == 0)
+		byte += 1 << (7 - space);
+	if (sig == SIGUSR2)
+		space++;
+	else
+		space++;
+	if (space == 8)
 	{
 		write(1, &byte, 1);
 		byte = 0;
@@ -43,15 +43,15 @@ void	handler(int sig)
 	}
 }
 
-int main()
+int	main(void)
 {
 	write(1, "SERVER PID: ", 12);
 	ft_putnbr(getpid());
 	write(1, "\n", 1);
-	signal(SIGUSR1, talk);
-	signal(SIGUSR2, talk);
-	while(1)
+	while (1)
 	{
+		signal(SIGUSR1, talk);
+		signal(SIGUSR2, talk);
 		pause();
 	}
 }

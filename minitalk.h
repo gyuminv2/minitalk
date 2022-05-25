@@ -6,7 +6,7 @@
 /*   By: gyumpark <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 15:47:37 by gyumpark          #+#    #+#             */
-/*   Updated: 2022/05/22 16:19:31 by gyumpark         ###   ########.fr       */
+/*   Updated: 2022/05/25 16:13:21 by gyumpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # include <stdio.h>
 
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 void	ft_putnbr(int n);
 
 #endif
