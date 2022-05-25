@@ -13,8 +13,8 @@
 NAME = $(NAME_C) $(NAME_S)
 NAME_C = client
 NAME_S = server
-SRCS_C = ./client.c ./ft_atoi.c
-SRCS_S = ./server.c
+SRCS_C = ./client.c ./ft_atoi.c ./ft_putnbr.c
+SRCS_S = ./server.c ./ft_putnbr.c
 OBJS = $(SRCS_C:%.c=%.o) $(SRCS_S:%.c=%.o)
 
 CC = cc

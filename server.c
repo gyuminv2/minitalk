@@ -12,6 +12,25 @@
 
 #include "minitalk.h"
 
+static void	talk(int sig)
+{
+	static int	byte;
+	static int	space;
+
+	space = 7;
+	if (sig == SIGUSR1)
+		byte += 1 << --space;
+	//else if (sig == SIGUSR2)
+	//	--space;
+	--space;
+	if (space == 0)
+	{
+		write(1, &byte, 1);
+		byte = 0;
+		space = 0;
+	}
+}
+
 void	handler(int sig)
 {
 	if (sig == SIGUSR1)
@@ -26,11 +45,13 @@ void	handler(int sig)
 
 int main()
 {
-	signal(SIGUSR1, handler);
-	signal(SIGUSR2, handler);
+	write(1, "SERVER PID: ", 12);
+	ft_putnbr(getpid());
+	write(1, "\n", 1);
+	signal(SIGUSR1, talk);
+	signal(SIGUSR2, talk);
 	while(1)
 	{
 		pause();
 	}
-	//signal(SIGUSR2, handler);
 }
