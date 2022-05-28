@@ -18,8 +18,8 @@ SRCS_S = ./server.c ./ft_putnbr.c
 OBJS = $(SRCS_C:%.c=%.o) $(SRCS_S:%.c=%.o)
 
 CC = cc
-\CFLAG = -Wall -Wextra -Werror
-CFLAG = -fsanitize=address -g3
+CFLAG = -Wall -Wextra -Werror
+\CFLAG = -fsanitize=address -g3
 
 RM = rm -rf
 

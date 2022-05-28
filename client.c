@@ -14,21 +14,18 @@
 
 static void	my_kill(int s_pid, char *s)
 {
-	char	save;
 	int		i;	
-	int		j;
 
 	i = 7;
-	j = 0;
 	while (*s)
 	{
 		i = 7;
 		while (i >= 0)
 		{
 			if (*s >> i & 1)
-				kill(s_pid, SIGUSR1); //	1
+				kill(s_pid, SIGUSR1);
 			else
-				kill(s_pid, SIGUSR2); //	0
+				kill(s_pid, SIGUSR2);
 			usleep(100);
 			i--;
 		}

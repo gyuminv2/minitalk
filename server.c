@@ -31,18 +31,6 @@ static void	talk(int sig)
 	}
 }
 
-void	handler(int sig)
-{
-	if (sig == SIGUSR1)
-	{
-		write(1, "RECEIVE SIGUSR1", 16);
-	}
-	else if (sig == SIGUSR2)
-	{
-		write(1, "RECEIVE SIGUSR2", 16);
-	}
-}
-
 int	main(void)
 {
 	write(1, "SERVER PID: ", 12);
